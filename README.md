@@ -30,7 +30,7 @@ Using
 
 Clone sources:
 
-	git clone https://github.com/myfreescalewebpage/meta-somlabs-examples.git ~/yocto/meta-somlabs-examples
+	git clone --branch warrior https://github.com/myfreescalewebpage/meta-somlabs-examples.git ~/yocto/meta-somlabs-examples
 
 See the README files of the example layers for details on the examples.
 

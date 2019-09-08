@@ -28,7 +28,7 @@ Using
 
 Clone sources:
 
-	git clone https://github.com/myfreescalewebpage/meta-somlabs-examples.git ~/yocto/meta-somlabs-examples
+	git clone --branch warrior https://github.com/myfreescalewebpage/meta-somlabs-examples.git ~/yocto/meta-somlabs-examples
 
 Add "meta-somlabs-examples/meta-somlabs-example-visioncb-6ull-std" to the bitbake layers configuration file.
 
