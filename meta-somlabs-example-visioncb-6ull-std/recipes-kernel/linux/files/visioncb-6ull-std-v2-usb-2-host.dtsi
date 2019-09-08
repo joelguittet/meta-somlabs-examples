@@ -1,0 +1,44 @@
+/*
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 as
+ * published by the Free Software Foundation.
+ */
+
+/ {
+	/* Regulators */
+	regulators {
+		/* USB OTG2 */
+		reg_usb_otg2_pwr: regulator-usb-otg2-pwr {
+			compatible = "regulator-fixed";
+			pinctrl-names = "default";
+			pinctrl-0 = <&pinctrl_usb_otg2_pwr>;
+			regulator-name = "reg-usb-otg2-pwr";
+			regulator-min-microvolt = <5000000>;
+			regulator-max-microvolt = <5000000>;
+			gpio = <&gpio2 12 GPIO_ACTIVE_HIGH>;
+			enable-active-high;
+		};
+        };
+};
+
+/* IO multiplexing */
+&iomuxc {
+	/* USB OTG2 */
+	pinctrl_usb_otg2_pwr: usb-otg2-pwr {
+		fsl,pins = <
+			MX6UL_PAD_ENET2_TX_DATA1__GPIO2_IO12 0x10b0
+		>;
+	};
+};
+
+/* USB OTG2 */
+&usbotg2 {
+	vbus-supply = <&reg_usb_otg2_pwr>;
+	dr_mode = "host";
+	status = "okay";
+};
+
+/* USB PHY2 */
+&usbphy2 {
+	tx-d-cal = <0x5>;
+};

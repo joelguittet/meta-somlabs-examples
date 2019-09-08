@@ -1,0 +1,39 @@
+/*
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 as
+ * published by the Free Software Foundation.
+ */
+
+/* IO multiplexing */
+&iomuxc {
+	/* SPI3 */
+	pinctrl_ecspi3: ecspi3 {
+		fsl,pins = <
+			MX6UL_PAD_UART2_CTS_B__ECSPI3_MOSI   0x0b0b0
+			MX6UL_PAD_UART2_RTS_B__ECSPI3_MISO   0x0b0b0
+			MX6UL_PAD_UART2_RX_DATA__ECSPI3_SCLK 0x0b0b0
+			MX6UL_PAD_UART2_TX_DATA__GPIO1_IO20  0x0b0b0
+			MX6UL_PAD_ENET2_TX_EN__GPIO2_IO13    0x0b0b0
+		>;
+	};
+};
+
+/* SPI3 */
+&ecspi3 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_ecspi3>;
+	fsl,spi-num-chipselects = <2>;
+	cs-gpios = <&gpio1 20 GPIO_ACTIVE_LOW &gpio2 13 GPIO_ACTIVE_LOW>;
+	status = "okay";
+
+	spidev0: spi@0 {
+		compatible = "spidev";
+		reg = <0>;
+		spi-max-frequency = <20000000>;
+	};
+	spidev1: spi@1 {
+		compatible = "spidev";
+		reg = <1>;
+		spi-max-frequency = <20000000>;
+	};
+};

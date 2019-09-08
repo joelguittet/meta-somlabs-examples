@@ -1,0 +1,101 @@
+/*
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 as
+ * published by the Free Software Foundation.
+ */
+
+/* IO multiplexing */
+&iomuxc {
+	/* LCD Control */
+	pinctrl_lcdif_ctrl: lcdif-ctrl {
+		fsl,pins = <
+			MX6UL_PAD_LCD_CLK__LCDIF_CLK       0x79
+			MX6UL_PAD_LCD_ENABLE__LCDIF_ENABLE 0x79
+			MX6UL_PAD_LCD_HSYNC__LCDIF_HSYNC   0x79
+			MX6UL_PAD_LCD_VSYNC__LCDIF_VSYNC   0x79
+			MX6UL_PAD_LCD_RESET__GPIO3_IO04    0x79
+			MX6UL_PAD_JTAG_TRST_B__GPIO1_IO15  0x79
+		>;
+	};
+
+	/* LCD Data */
+	pinctrl_lcdif_data: lcdif-data {
+		fsl,pins = <
+			MX6UL_PAD_LCD_DATA00__LCDIF_DATA00 0x79
+			MX6UL_PAD_LCD_DATA01__LCDIF_DATA01 0x79
+			MX6UL_PAD_LCD_DATA02__LCDIF_DATA02 0x79
+			MX6UL_PAD_LCD_DATA03__LCDIF_DATA03 0x79
+			MX6UL_PAD_LCD_DATA04__LCDIF_DATA04 0x79
+			MX6UL_PAD_LCD_DATA05__LCDIF_DATA05 0x79
+			MX6UL_PAD_LCD_DATA06__LCDIF_DATA06 0x79
+			MX6UL_PAD_LCD_DATA07__LCDIF_DATA07 0x79
+			MX6UL_PAD_LCD_DATA08__LCDIF_DATA08 0x79
+			MX6UL_PAD_LCD_DATA09__LCDIF_DATA09 0x79
+			MX6UL_PAD_LCD_DATA10__LCDIF_DATA10 0x79
+			MX6UL_PAD_LCD_DATA11__LCDIF_DATA11 0x79
+			MX6UL_PAD_LCD_DATA12__LCDIF_DATA12 0x79
+			MX6UL_PAD_LCD_DATA13__LCDIF_DATA13 0x79
+			MX6UL_PAD_LCD_DATA14__LCDIF_DATA14 0x79
+			MX6UL_PAD_LCD_DATA15__LCDIF_DATA15 0x79
+			MX6UL_PAD_LCD_DATA16__LCDIF_DATA16 0x79
+			MX6UL_PAD_LCD_DATA17__LCDIF_DATA17 0x79
+			MX6UL_PAD_LCD_DATA18__LCDIF_DATA18 0x79
+			MX6UL_PAD_LCD_DATA19__LCDIF_DATA19 0x79
+			MX6UL_PAD_LCD_DATA20__LCDIF_DATA20 0x79
+			MX6UL_PAD_LCD_DATA21__LCDIF_DATA21 0x79
+			MX6UL_PAD_LCD_DATA22__LCDIF_DATA22 0x79
+			MX6UL_PAD_LCD_DATA23__LCDIF_DATA23 0x79
+		>;
+	};
+        
+	/* Touchscreen */
+	pinctrl_tsc: tscgrp {
+		fsl,pins = <
+			MX6UL_PAD_GPIO1_IO01__GPIO1_IO01 0xb0
+			MX6UL_PAD_GPIO1_IO02__GPIO1_IO02 0xb0
+			MX6UL_PAD_GPIO1_IO03__GPIO1_IO03 0xb0
+			MX6UL_PAD_GPIO1_IO04__GPIO1_IO04 0xb0
+		>;
+	};
+};
+
+/* LCD */
+&lcdif {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_lcdif_data &pinctrl_lcdif_ctrl>;
+	display = <&display0>;
+	status = "okay";
+
+	display0: display {
+		bits-per-pixel = <16>;
+		bus-width = <24>;
+		display-timings {
+			native-mode = <&timing0>;
+			timing0: timing0 {
+				clock-frequency = <9200000>;
+				hactive = <480>;
+				vactive = <272>;
+				hfront-porch = <8>;
+				hback-porch = <4>;
+				hsync-len = <41>;
+				vback-porch = <2>;
+				vfront-porch = <4>;
+				vsync-len = <10>;
+				hsync-active = <0>;
+				vsync-active = <0>;
+				de-active = <1>;
+				pixelclk-active = <0>;
+			};
+		};
+	};
+};
+
+/* Touchscreen */
+&tsc {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_tsc>;
+	xnur-gpio = <&gpio1 3 GPIO_ACTIVE_LOW>;
+	measure-delay-time = <0xffff>;
+	pre-charge-time = <0xfff>;
+	status = "okay";
+};
