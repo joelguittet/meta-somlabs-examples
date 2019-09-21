@@ -7,7 +7,7 @@
 /dts-v1/;
 
 #include "sls16xx-base.dtsi"
-#include "sls16xx-nand.dtsi"
+#include "sls16xx-emmc.dtsi"
 #include "sls16xx-bluetooth-murata-1dx.dtsi"
 #include "sls16xx-wifi-murata-1dx.dtsi"
 #include "visioncb-6ull-std-v2-ethernet-1.dtsi"
