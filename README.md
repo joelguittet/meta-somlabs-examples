@@ -11,7 +11,7 @@ This layer depends on the additional layers:
 * meta-openembedded/meta-oe
 * meta-openembedded/meta-python
 * meta-openembedded/meta-networking
-* meta-somlabs (from my GitHub https://github.com/myfreescalewebpage/meta-somlabs)
+* meta-somlabs (from my GitHub https://github.com/joelguittet/meta-somlabs)
 * Additional layers for some specific examples (see the README files of the example layers)
 
 
@@ -30,11 +30,11 @@ Using
 
 Clone sources:
 
-	git clone --branch warrior https://github.com/myfreescalewebpage/meta-somlabs-examples.git ~/yocto/meta-somlabs-examples
+	git clone --branch warrior https://github.com/joelguittet/meta-somlabs-examples.git ~/yocto/meta-somlabs-examples
 
 See the README files of the example layers for details on the examples.
 
-See also the README file of the meta-somlabs layer (from my GitHub https://github.com/myfreescalewebpage/meta-somlabs) to check details about building and flashing images on the SoMLabs boards.
+See also the README file of the meta-somlabs layer (from my GitHub https://github.com/joelguittet/meta-somlabs) to check details about building and flashing images on the SoMLabs boards.
 
 
 Contributing
@@ -48,4 +48,4 @@ Use Github Issues to report anomalies or to propose enhancements (labels are ava
 References
 --
 
-* https://github.com/myfreescalewebpage/meta-somlabs
+* https://github.com/joelguittet/meta-somlabs

@@ -11,7 +11,7 @@ This layer depends on the additional layers:
 * meta-openembedded/meta-oe
 * meta-openembedded/meta-python
 * meta-openembedded/meta-networking
-* meta-somlabs (from my GitHub https://github.com/myfreescalewebpage/meta-somlabs)
+* meta-somlabs (from my GitHub https://github.com/joelguittet/meta-somlabs)
 
 
 Images
@@ -28,7 +28,7 @@ Using
 
 Clone sources:
 
-	git clone --branch warrior https://github.com/myfreescalewebpage/meta-somlabs-examples.git ~/yocto/meta-somlabs-examples
+	git clone --branch warrior https://github.com/joelguittet/meta-somlabs-examples.git ~/yocto/meta-somlabs-examples
 
 Add "meta-somlabs-examples/meta-somlabs-example-distro-systemd" to the bitbake layers configuration file.
 
@@ -36,7 +36,7 @@ Modify distro in the bitbake local configuration file:
 
 	DISTRO ?= "somlabs-example-distro-systemd"
 
-See the README file of the meta-somlabs layer (from my GitHub https://github.com/myfreescalewebpage/meta-somlabs) to check details about building and flashing images on the SoMLabs board.
+See the README file of the meta-somlabs layer (from my GitHub https://github.com/joelguittet/meta-somlabs) to check details about building and flashing images on the SoMLabs board.
 
 ### somlabs-image-example-distro-systemd
 
@@ -54,4 +54,4 @@ Use Github Issues to report anomalies or to propose enhancements (labels are ava
 References
 --
 
-* https://github.com/myfreescalewebpage/meta-somlabs
+* https://github.com/joelguittet/meta-somlabs
